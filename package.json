@@ -1,0 +1,25 @@
+{
+  "name": "open-window-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "auth-service",
+    "user-service",
+    "meeting-service",
+    "signaling-service",
+    "media-service",
+    "shared-libs",
+    "web-client"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
