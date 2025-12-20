@@ -11,7 +11,7 @@ export const Home = () => {
     const createMeeting = async () => {
         try {
             const title = `Meeting ${new Date().toLocaleTimeString()}`;
-            const res = await axios.post('http://localhost:3003/meeting', {
+            const res = await axios.post(import.meta.env.VITE_API_BASE_URL + '/meeting', {
                 title,
                 hostId: user?.id
             });

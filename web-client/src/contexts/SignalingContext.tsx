@@ -43,7 +43,7 @@ export const SignalingProvider: React.FC<{ children: ReactNode }> = ({ children 
       socket.disconnect();
     }
 
-    const s = io('http://localhost:3004', {
+    const s = io(import.meta.env.VITE_SIGNALING_URL, {
       auth: {
         token,
       },

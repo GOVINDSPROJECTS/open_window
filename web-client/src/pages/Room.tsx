@@ -398,7 +398,8 @@ export const Room = () => {
         setJoinError('');
         try {
             // Using endpoint: POST /meeting/:publicId/join
-            const res = await axios.post(`http://localhost:3003/meeting/${id}/join`, dto);
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/meeting/${id}/join`, dto);
+
             const { joinToken, role } = res.data;
 
             // Set role locally for other components effectively
