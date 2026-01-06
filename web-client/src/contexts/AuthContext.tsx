@@ -62,7 +62,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, [token]);
 
     const login = async (dto: any) => {
-        const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/login`, dto);
+        const res = await axios.post(`/api/auth/login`, dto);
         setToken(res.data.accessToken);
         setUser(res.data.user);
         localStorage.setItem('user', JSON.stringify(res.data.user));
@@ -70,7 +70,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
 
     const register = async (dto: any) => {
-        const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/register`, dto);
+        const res = await axios.post(`/api/auth/register`, dto);
         setToken(res.data.accessToken);
         setUser(res.data.user);
         localStorage.setItem('user', JSON.stringify(res.data.user));

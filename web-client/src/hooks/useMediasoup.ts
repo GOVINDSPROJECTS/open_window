@@ -10,7 +10,7 @@ export const useMediasoup = (roomId: string, user: any) => {
     const [consumers, setConsumers] = useState<any[]>([]);
     const [participants, setParticipants] = useState<any[]>([]);
     const [waitingParticipants, setWaitingParticipants] = useState<any[]>([]);
-    const [status, setStatus] = useState<'connecting' | 'waiting' | 'admitted' | 'rejected'>('connecting');
+    const [status, setStatus] = useState<'connecting' | 'connected' | 'waiting' | 'admitted' | 'rejected'>('connecting');
     const [meetingEnded, setMeetingEnded] = useState(false);
 
     const producersRef = useRef<Map<string, mediasoup.types.Producer>>(new Map());
@@ -36,6 +36,7 @@ export const useMediasoup = (roomId: string, user: any) => {
             setDevice(newDevice);
             deviceRef.current = newDevice;
             setIsDeviceLoaded(true);
+            setStatus('connected');
 
             // 2. Create Send Transport
             if (!sendTransportRef.current) {
